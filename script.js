@@ -1,5 +1,6 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
+const themeToggle = document.querySelector(".theme-toggle");
 const newsletterForm = document.querySelector(".newsletter-form");
 const formMessage = document.querySelector(".form-message");
 const year = document.querySelector("#year");
@@ -7,6 +8,19 @@ const clock = document.querySelector(".clock-widget");
 const hourHand = document.querySelector(".clock-hand-hour");
 const minuteHand = document.querySelector(".clock-hand-minute");
 const secondHand = document.querySelector(".clock-hand-second");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+
+const setTheme = (theme) => {
+  const isDark = theme === "dark";
+  document.documentElement.dataset.theme = theme;
+  themeToggle.setAttribute("aria-label", isDark ? "Activar tema claro" : "Activar tema oscuro");
+  themeToggle.setAttribute("aria-pressed", String(isDark));
+  themeToggle.querySelector(".theme-toggle-label").textContent = isDark ? "Claro" : "Oscuro";
+  themeColor.setAttribute("content", isDark ? "#172522" : "#f7f5ef");
+};
+
+const savedTheme = localStorage.getItem("casa-marea-theme");
+setTheme(savedTheme === "dark" ? "dark" : "light");
 
 year.textContent = new Date().getFullYear();
 
@@ -41,6 +55,12 @@ siteNav.addEventListener("click", (event) => {
     menuToggle.setAttribute("aria-label", "Abrir menú");
     siteNav.classList.remove("is-open");
   }
+});
+
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  setTheme(nextTheme);
+  localStorage.setItem("casa-marea-theme", nextTheme);
 });
 
 newsletterForm.addEventListener("submit", (event) => {

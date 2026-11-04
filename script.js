@@ -54,8 +54,3 @@ newsletterForm.addEventListener("submit", (event) => {
   formMessage.classList.add("is-success");
   newsletterForm.reset();
 });
-
-
-
-
-

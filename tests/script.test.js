@@ -98,7 +98,7 @@ test("inicia en tema claro cuando no hay un tema guardado", () => {
 
   assert.equal(root.dataset.theme, "light");
   assert.equal(elements[".theme-toggle"].getAttribute("aria-pressed"), "false");
-  assert.equal(elements['meta[name="theme-color"]'].getAttribute("content"), "#f7f5ef");
+  assert.equal(elements['meta[name="theme-color"]'].getAttribute("content"), "#000000");
 });
 
 test("restaura el tema oscuro guardado y permite alternarlo", () => {

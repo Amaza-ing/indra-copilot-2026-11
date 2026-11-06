@@ -46,6 +46,14 @@ mi-web/
 
 ## Cómo ejecutar el proyecto
 
+### Ejecutar las pruebas
+
+Las pruebas usan el test runner integrado de Node.js, sin dependencias adicionales. Se requiere Node.js 18 o posterior.
+
+```bash
+node --test
+```
+
 ### Opción 1: abrir directamente
 
 1. Abre el archivo `index.html` en tu navegador.
